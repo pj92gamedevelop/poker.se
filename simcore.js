@@ -406,8 +406,9 @@ function simulateAction(payload, actionKind, raiseSize, progressCb, shouldStop){
   const toCall = payload.toCall;
   const heroStack = payload.heroStack;
 
-  const opps = payload.opponents || [];
-  const aliveOpps = opps.filter(o => o && o.inhand !== false);
+const opps = Array.isArray(payload.opponents) ? payload.opponents : [];
+const aliveOpps = opps.filter(o => o && o.inhand !== false);
+
 
   const deadSetBase = new Set([...payload.hero, ...payload.board]);
 
