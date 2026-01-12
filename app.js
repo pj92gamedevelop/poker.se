@@ -282,7 +282,8 @@ function showBest(ev) {
 function buildPayload() {
   const n = Number(playersEl.value);
   const { hero, board } = getHeroAndBoard();
-  const seats = readSeats().filter(s => s.inhand);
+  const seats = readSeats().filter(s => s && s.inhand);
+
 
   const pot = Number($("pot").value || 0);
   const toCall = Number($("toCall").value || 0);
